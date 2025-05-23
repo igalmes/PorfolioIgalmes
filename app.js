@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const sendMail = require('./sendmail'); // Asegúrate de que sendmail.js está en el mismo directorio
+const sendMail = require('./sendmail'); 
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -14,10 +14,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // Servir archivos estáticos desde la carpeta 'public'
 const publicPath = path.join(__dirname, 'public');
-console.log('Express sirviendo archivos estáticos desde:', publicPath); // <-- Línea añadida para depuración
+console.log('Express sirviendo archivos estáticos desde:', publicPath); 
 app.use(express.static(publicPath));
 
-// La ruta principal '/' ha sido comentada, confiando en express.static para servir index.html
 /*
 app.get('/', (req, res) => {
     console.log('¡Request recibido para la ruta principal!');
